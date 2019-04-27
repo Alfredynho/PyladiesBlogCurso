@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> {% block title %}
+    <title>DjBlog</title> {% endblock title %} {% block description %}
+    <meta name="description" content="Project Django">
+    <meta name="keywords" content="Tags Django, Python, Postgres, Ajax , Jquery"> {% endblock description %}
+
+</head>
+
+<body>
+
+
+    {% block content %}
+    <section class="probootstrap-section">
+        <div class="container">
+
+            <div class="row">
+
+                {% for post in posts %}
+                <div class="col-md-4 col-sm-6 col-xs-12 probootstrap-animate">
+                    <div class="probootstrap-block-image">
+                        <figure>
+                            <img src="{% static 'img/djangolove.png' %}" alt="Free Bootstrap Template by uicookies.com">
+                        </figure>
+                        <div class="text">
+                            <span class="date">{{ post.publication_date }}</span>
+                            <h3>
+                                <a href="{% url 'post:detail_post' post.id %}">{{ post.title }}</a>
+                            </h3>
+                            <p>{{ post.autor }}</p>
+                            <p>
+                                <a href="{% url 'post:detail_post' post.id %}" class="link-with-icon">leer mas 
+                                    <i class=" icon-chevron-right"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>  
+                {% empty %}          
+                    <h2>Sin registros Existentes</h2>                    
+                {% endfor %}
+                
+            </div>
+
+            <div class="row mb50">
+                <div class="col-md-12 section-heading text-center">
+                    <h2> Dejanos un comentario </h2>
+                </div>
+            </div>
+            <div class="row">
+                <div id="disqus_thread"></div>
+                <script>
+
+                    (function () {
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://devzone-2.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the
+                    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+                </noscript>
+            </div>
+        </div>
+    </section>
+    {% endblock content %}
+
+</body>
+
+</html>

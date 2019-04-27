@@ -1,0 +1,62 @@
+{% extends 'base.html' %} 
+
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    {% block title %}
+        <title>{{ post.title }}</title> {% endblock title %} 
+    {% block description %}
+        <meta name="description" content="Project Django">
+        <meta name="keywords" content="Tags Django, Python, Postgres, Ajax , Jquery"> 
+    {% endblock description %}
+
+</head>
+
+<body>
+
+{% block content %}
+    <section class="probootstrap-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 section-heading mb50 text-center">
+                    <h2>{{ post.title }}</h2>
+                        <center></center><img src="{% static 'img/djangolove.png' %}" alt="Free Bootstrap Template by uicookies.com"></center><p>
+                    <p class="lead">{{ post.content }}</p>
+                    <h3 class="mb30">{{ post.autor }}</h3>                
+                    <h3 class="mb30">{{ post.publication_date }}</h3>                
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">        
+                <div class="fb-comments" data-href="{{ object.get_absolute_url }}" data-numposts="5"
+                    data-width="100%"></div>
+            </div>
+        </div>
+
+    </section>
+
+    {% endblock content %}
+    {% block extrajs %}
+    
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.0&appId=1926092837647544&autoLogAppEvents=1';
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    {% endblock extrajs %}
+</body>
+
+</html>
