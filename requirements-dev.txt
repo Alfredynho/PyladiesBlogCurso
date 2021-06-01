@@ -48,6 +48,6 @@ scour==0.36
 six==1.11.0
 tldextract==1.6
 unicodecsv==0.13.0
-urllib3==1.22
+urllib3==1.26.5
 virtualenv==16.0.0
 webencodings==0.5
