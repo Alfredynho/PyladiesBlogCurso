@@ -21,7 +21,7 @@ mysql-connector-python==2.1.6
 mysql-utilities==1.6.4
 numpy==1.14.3
 olefile==0.45.1
-paramiko==2.4.0
+paramiko==2.10.1
 pathlib2==2.3.2
 pexpect==4.2.1
 Pillow==5.1.0
