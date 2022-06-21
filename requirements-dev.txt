@@ -19,7 +19,7 @@ ipaddress==1.0.17
 lxml==4.2.1
 mysql-connector-python==2.1.6
 mysql-utilities==1.6.4
-numpy==1.14.3
+numpy==1.22.0
 olefile==0.45.1
 paramiko==2.4.0
 pathlib2==2.3.2
